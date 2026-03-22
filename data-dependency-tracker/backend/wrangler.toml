@@ -1,0 +1,10 @@
+name = "ddt-backend-worker"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
+
+[build]
+command = "npm install"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "ddt_database"
