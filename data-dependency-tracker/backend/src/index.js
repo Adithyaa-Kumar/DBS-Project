@@ -4,7 +4,7 @@
  */
 
 import D1Storage from './d1Storage.js';
-import DependencyEngine from './dependencyEngine.js';
+import DependencyEngine from '../dependencyEngine.js';
 
 export default {
   async fetch(request, env) {

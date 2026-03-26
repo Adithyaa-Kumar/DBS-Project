@@ -29,7 +29,7 @@ class D1Storage {
   }
 
   async createTable(tableName, columns) {
-    const exists = await this.db.prepare(`SELECT table_name FROM tables WHERE table_name = ?`).bind(tableName).get();
+    const exists = await this.db.prepare(`SELECT table_name FROM tables WHERE table_name = ?`).bind(tableName).first();
     if (exists) {
       throw new Error(`Table ${tableName} already exists`);
     }
@@ -42,7 +42,7 @@ class D1Storage {
   }
 
   async getTableSchema(tableName) {
-    const row = await this.db.prepare(`SELECT columns FROM tables WHERE table_name = ?`).bind(tableName).get();
+    const row = await this.db.prepare(`SELECT columns FROM tables WHERE table_name = ?`).bind(tableName).first();
     if (!row) throw new Error(`Table ${tableName} not found`);
     return JSON.parse(row.columns);
   }
@@ -61,7 +61,7 @@ class D1Storage {
   }
 
   async getTable(tableName) {
-    const tableRow = await this.db.prepare(`SELECT columns FROM tables WHERE table_name = ?`).bind(tableName).get();
+    const tableRow = await this.db.prepare(`SELECT columns FROM tables WHERE table_name = ?`).bind(tableName).first();
     if (!tableRow) throw new Error(`Table ${tableName} not found`);
 
     const columns = JSON.parse(tableRow.columns);
@@ -77,7 +77,7 @@ class D1Storage {
   }
 
   async insertRow(tableName, data) {
-    const tableRow = await this.db.prepare(`SELECT columns FROM tables WHERE table_name = ?`).bind(tableName).get();
+    const tableRow = await this.db.prepare(`SELECT columns FROM tables WHERE table_name = ?`).bind(tableName).first();
     if (!tableRow) throw new Error(`Table ${tableName} not found`);
 
     const columns = JSON.parse(tableRow.columns);

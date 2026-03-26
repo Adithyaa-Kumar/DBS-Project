@@ -7,4 +7,5 @@ command = "npm install"
 
 [[d1_databases]]
 binding = "DB"
-database_name = "ddt_database"
+database_name = "ddt-database"
+database_id = "6f9f2d07-264b-43e6-9edf-ffd01c89f314"

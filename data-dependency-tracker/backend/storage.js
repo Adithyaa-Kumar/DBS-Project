@@ -189,6 +189,18 @@ class StorageEngine {
   }
 
   /**
+   * Get schema for a specific table
+   * @param {string} tableName - Name of the table
+   * @returns {Array} - Array of column definitions
+   */
+  getTableSchema(tableName) {
+    if (!this.metadata[tableName]) {
+      throw new Error(`Table ${tableName} not found`);
+    }
+    return this.metadata[tableName].columns;
+  }
+
+  /**
    * Get all foreign key relationships
    * @returns {Array} - Array of foreign key relationships
    */

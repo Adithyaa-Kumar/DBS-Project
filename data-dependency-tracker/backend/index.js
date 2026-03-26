@@ -205,11 +205,11 @@ app.get('/api/relationships', (req, res) => {
  * POST /api/cascade-order
  * Body: { tableName: string, pkValue: any }
  */
-app.post('/api/cascade-order', (req, res) => {
+app.post('/api/cascade-order', async (req, res) => {
   try {
     const { tableName, pkValue } = req.body;
 
-    const deletionOrder = dependencyEngine.getCascadingDeletionOrder(
+    const deletionOrder = await dependencyEngine.getCascadingDeletionOrder(
       tableName,
       isNaN(pkValue) ? pkValue : Number(pkValue)
     );
