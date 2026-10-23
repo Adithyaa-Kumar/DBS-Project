@@ -26,7 +26,7 @@ A full-stack web application that allows users to:
 - Insert data with automatic FK validation
 - **Simulate deletion impact** by analyzing cascading dependencies
 - **Visualize dependencies** using interactive graph (Cytoscape.js)
-- Understand complex data relationships in real-time
+- Understand complex data relationships in real-time.
 
 ### Key Features
 
