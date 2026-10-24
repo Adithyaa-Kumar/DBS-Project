@@ -9,3 +9,17 @@ command = "npm install"
 binding = "DB"
 database_name = "ddt-database"
 database_id = "6f9f2d07-264b-43e6-9edf-ffd01c89f314"
+
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+invocation_logs = true
+persist = true
+
+[observability.traces]
+enabled = true
+head_sampling_rate = 1
+persist = true
+
+[observability.issue_detection]
+enabled = true
